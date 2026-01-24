@@ -1,6 +1,6 @@
 # Control and Signal Processing 
 
-This repository contains MATLAB scripts, calculations, and analysis related to **Control and Signal Processing (CSP)** concepts. It includes all the laboratory experiments and exercises for the **Control and Signal Processing Laboratory (ICE 3241)** course. 
+This repository contains MATLAB scripts, calculations, and analysis related to **Control and Signal Processing (CSP)** concepts. It includes experiments and exercises for the Control and Signal Processing Laboratory (ICE 3241) course. 
 The repository is structured according to the lab cycles and experiments.
 
 ---

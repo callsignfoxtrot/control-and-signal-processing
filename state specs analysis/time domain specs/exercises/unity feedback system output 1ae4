@@ -1,0 +1,17 @@
+
+G =
+ 
+         5 s^2 + 2 s + 1
+  ------------------------------
+  s^4 + 55 s^3 + 466 s^2 + 720 s
+ 
+Continuous-time transfer function.
+Model Properties
+Error Constants:
+Kp = Inf
+Kv = 0.001389
+Ka = 0.000000
+Steady-State Errors:
+Step input error = 0.000000
+Ramp input error = 720.000000
+Parabolic input error = Inf

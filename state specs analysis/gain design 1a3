@@ -1,0 +1,33 @@
+>> gain_design_1a3
+
+
+GKv =
+ 
+            s + 5
+  --------------------------
+  s^3 + 21 s^2 + 146 s + 336
+ 
+Continuous-time transfer function.
+Model Properties
+
+Kvi =
+
+    0.0149
+
+
+ess =
+
+    0.1000
+
+
+K =
+
+  672.0000
+
+
+poles =
+
+ -14.6663 + 0.0000i
+  -0.6909 + 6.7667i
+  -0.6909 - 6.7667i
+  -4.9518 + 0.0000i

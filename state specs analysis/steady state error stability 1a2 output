@@ -1,0 +1,23 @@
+>> steady_state_error_stability_1a2
+
+poles =
+
+ -516.9544
+   -5.7623
+   -5.4278
+   -1.8554
+
+
+ess_step =
+
+     0
+
+
+ess_ramp =
+
+    0.0320
+
+
+ess_parabolic =
+
+   Inf

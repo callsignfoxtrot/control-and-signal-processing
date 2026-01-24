@@ -1,0 +1,16 @@
+Time Domain Specifications:
+         RiseTime: 0.2319
+    TransientTime: 0.7429
+     SettlingTime: 0.7429
+      SettlingMin: 0.9083
+      SettlingMax: 1.0948
+        Overshoot: 9.4773
+       Undershoot: 0
+             Peak: 1.0948
+         PeakTime: 0.4893
+
+
+Theoretical Values:
+Peak Time Tp = 0.4909 s
+Settling Time Ts = 0.8333 s
+Percent Overshoot Mp = 9.48 %

@@ -1,0 +1,11 @@
+>>unit_step_response_1a1
+Time-Domain Specifications:
+         RiseTime: 1.5848e+03
+    TransientTime: 2.8206e+03
+     SettlingTime: 2.8206e+03
+      SettlingMin: 0.9002
+      SettlingMax: 0.9993
+        Overshoot: 0
+       Undershoot: 0
+             Peak: 0.9993
+         PeakTime: 5.2819e+03

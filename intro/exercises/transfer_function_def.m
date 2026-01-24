@@ -1,7 +1,8 @@
 %Factored Form and Pole-Zero Plot
 
+
 %{
-Exercise 3:
+Additional Exercise - Exercise 3:
 Consider the transfer function:
        G(s) = (s^2 + 6*s + 8) / (s^4 + 8*s^3 + 12*s^2 + 16*s + 20)
 

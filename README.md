@@ -17,7 +17,7 @@ The repository is structured according to the lab cycles and experiments.
 ## Lab Cycles and Experiments
 
 ### Cycle 1: Software Experiments
-- **LO**: Familiarization with MATLAB
+- **L0**: Familiarization with MATLAB
 - **L1**
   - Time domain specifications and steady state errors
   - Frequency response and frequency domain specifications

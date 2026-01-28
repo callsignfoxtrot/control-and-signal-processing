@@ -1,0 +1,26 @@
+System is controllable and pole placement is possible
+State feedback gain F1 for poles [-1±j5, -10]:
+
+F1 =
+
+   -0.1404    0.3754    0.1800
+
+Norm of F1:
+
+normF1 =
+
+    0.4394
+
+State feedback gain F2 for poles [-5, -60, -70]:
+
+F2 =
+
+   70.4864   94.5509   12.4800
+
+Norm of F2:
+
+normF2 =
+
+  118.5915
+
+F2 has larger norm than F1

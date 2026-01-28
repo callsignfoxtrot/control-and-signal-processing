@@ -1,0 +1,43 @@
+clear all;
+
+% Given system matrices
+A = [-0.1 5 0.1; -5 -0.1 5; 0 0 -10];
+B = [0; 0; 10];
+
+% Controllability check
+CO = [B A*B A^2*B];
+nc = size(A,1);
+if rank(CO) == nc
+    display('System is controllable and pole placement is possible')
+else
+    display('System is not controllable and pole placement is not possible')
+    return
+end
+
+% (i) Desired poles s = -1 ± j5, -10
+P1 = [-1+5i, -1-5i, -10];
+poly1 = poly(P1); % Characteristic polynomial coefficients
+Phi1 = polyvalm(poly1,A); % Desired characteristic polynomial in matrix form
+
+% Ackermann's formula for state feedback
+F1 = [0 0 1]*inv(CO)*Phi1; % state feedback gain
+display('State feedback gain F1 for poles [-1±j5, -10]:'); F1
+normF1 = norm(F1); % Norm of F1
+display('Norm of F1:'); normF1
+
+% (ii) Desired poles s = -5, -60, -70
+P2 = [-5, -60, -70];
+poly2 = poly(P2);
+Phi2 = polyvalm(poly2,A);
+
+F2 = [0 0 1]*inv(CO)*Phi2;
+display('State feedback gain F2 for poles [-5, -60, -70]:'); F2
+normF2 = norm(F2);
+display('Norm of F2:'); normF2
+
+% Compare norms
+if normF1 > normF2
+    display('F1 has larger norm than F2')
+else
+    display('F2 has larger norm than F1')
+end

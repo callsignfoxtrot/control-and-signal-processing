@@ -1,0 +1,100 @@
+clear all;
+
+% Given system matrices
+A=[-2 -2.5 -0.5; 1 0 0; 0 1 0];
+B=[1;0;0];
+C=[1 4 3.5];
+D=0;
+
+% (i) Eigenvalues of A
+L = eig(A);
+
+% Van der Monde matrix for transformation to diagonal (Jordan) form
+P=[1 1 1;
+   L(1) L(2) L(3);
+   L(1)^2 L(2)^2 L(3)^2]; % distinct eigenvalue case
+PI = pinv(P);
+
+% Transformation to Jordan canonical form
+ASTILDA = PI*A*P;
+BSTILDA = PI*B;
+CSTILDA = C*P;
+DSTILDA = D;
+
+% (ii) Eigenvalues of ASTILDA
+L1 = eig(ASTILDA);
+
+% (iii) Determinant of original and transformed A
+DETA = det(A);
+detSTILDA = det(ASTILDA);
+
+% (iv) Trace of original and transformed A
+TRA = trace(A);
+TRASTILDA = trace(ASTILDA);
+
+% (v) Transfer function of original system
+[num, den] = ss2tf(A,B,C,D);
+S1 = tf(num, den);
+
+% Transfer function of transformed system
+[num1, den1] = ss2tf(ASTILDA,BSTILDA,CSTILDA,DSTILDA);
+S2 = tf(num1, den1);
+
+% Display results
+display('Eigenvalues of A:'); L
+display('Eigenvalues of Jordan form ASTILDA:'); L1
+display('Determinant of A:'); DETA
+display('Determinant of Jordan form ASTILDA:'); detSTILDA
+display('Trace of A:'); TRA
+display('Trace of Jordan form ASTILDA:'); TRASTILDA
+display('Transfer function of original system:'); S1
+display('Transfer function of transformed system:'); S2
+
+
+% (ii) Pole-Zero plot
+sys = ss(A,B,C,D);
+figure;
+pzmap(sys);
+title('Pole-Zero Plot of the System');
+
+% Controllability check
+CO = ctrb(A,B);
+if rank(CO) == size(A,1)
+    display('System is controllable');
+else
+    display('System is not controllable');
+end
+
+% Controllability check (manual)
+CO = [B A*B A^2*B]; % Controllability matrix
+rank(CO)
+nc = size(A,1);
+if rank(CO) == nc
+    display('System is controllable and pole placement is possible')
+else
+    display('System is not controllable and pole placement is not possible')
+    exit
+end
+
+% Observability check
+OB = [C; C*A; C*A^2]; % Observability matrix
+if rank(OB) == nc
+    display('System is observable')
+else
+    display('System is not observable')
+end
+
+% Desired closed-loop poles
+P_des = [-4 -8 -10]; % Vector form
+poly_des = poly(P_des); % Characteristic polynomial coefficients
+
+% Desired characteristic polynomial in matrix form
+Phi = polyvalm(poly_des, A); % phi(A) = A^3 + alpha1*A^2 + alpha2*A + alpha3*I
+
+% Ackermann's formula for state feedback
+K = [0 0 1] * inv(CO) * Phi; 
+display('State feedback gain K:'); K
+
+% Closed-loop system
+Acl = A - B*K;
+display('Closed-loop eigenvalues:'); eig(Acl)

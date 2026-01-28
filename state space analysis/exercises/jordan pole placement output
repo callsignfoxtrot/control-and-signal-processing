@@ -1,0 +1,89 @@
+Eigenvalues of A:
+
+L =
+
+  -0.8796 + 1.1414i
+  -0.8796 - 1.1414i
+  -0.2408 + 0.0000i
+
+Eigenvalues of Jordan form ASTILDA:
+
+L1 =
+
+  -0.8796 - 1.1414i
+  -0.2408 + 0.0000i
+  -0.8796 + 1.1414i
+
+Determinant of A:
+
+DETA =
+
+   -0.5000
+
+Determinant of Jordan form ASTILDA:
+
+detSTILDA =
+
+  -0.5000 - 0.0000i
+
+Trace of A:
+
+TRA =
+
+    -2
+
+Trace of Jordan form ASTILDA:
+
+TRASTILDA =
+
+  -2.0000 - 0.0000i
+
+Transfer function of original system:
+
+S1 =
+ 
+       s^2 + 4 s + 3.5
+  -------------------------
+  s^3 + 2 s^2 + 2.5 s + 0.5
+ 
+Continuous-time transfer function.
+Model Properties
+Transfer function of transformed system:
+
+S2 =
+ 
+             s^2 + (4-8.009e-16i) s + (3.5-1.007e-15i)
+  ----------------------------------------------------------------
+  s^3 + (2-4.441e-16i) s^2 + (2.5+1.055e-15i) s + (0.5+1.943e-16i)
+ 
+Continuous-time transfer function.
+Model Properties
+System is controllable
+
+ans =
+
+     3
+
+System is controllable and pole placement is possible
+System is observable
+State feedback gain K:
+
+K =
+
+   20.0000  149.5000  319.5000
+
+Closed-loop eigenvalues:
+
+ans =
+
+  -10.0000
+   -8.0000
+   -4.0000
+
+>> Acl
+
+Acl =
+
+   -22  -152  -320
+     1     0     0
+     0     1     0

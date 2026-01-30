@@ -1,0 +1,68 @@
+% Lag compensator design using Bode plots
+
+% Enter the design specifications
+KV = 5;          % Velocity constant
+PM = 40;         % Desired phase margin (degrees)
+GM = 10;         % Desired gain margin (dB)
+
+% Enter the transfer function of the uncompensated system
+numg = [1];
+deng = conv(conv([1 0], [1 1]), [0.5 1]);  % s*(s+1)*(0.5s+1)
+G = tf(numg, deng)
+
+% To find K to meet steady state error criteria
+K = KV / dcgain(tf(conv([1 0], numg), deng)) 
+
+% Gain-adjusted uncompensated system
+Gk = K * G
+
+% Plot Bode of gain-adjusted uncompensated system
+w = logspace(-1, 2, 1000)
+figure(1)
+bode(Gk, w)
+grid on
+title('Bode plot of gain-adjusted uncompensated system')
+
+% Measure Gain Margin and Phase Margin
+[GM_sys, PM_sys, Wcg, Wcp] = margin(Gk)
+
+% Calculation: Find frequency for desired phase margin + allowance
+% (manually from Bode plot: phase angle = -180 + PM + allowance)
+% Measure magnitude at this frequency: M dB
+% Compute beta (β) of lag compensator
+% 20*log10(beta) = M  --> beta = 10^(M/20)
+% Step 5 & 6: Lag compensator design
+wm=0.47
+% Upper corner frequency of lag network
+wh = wm/ 10;     
+
+beta=9.5 %from the plot
+% Lower corner frequency of lag network
+w1 = wh / beta   % beta calculated from magnitude at new crossover
+
+% Gain constant for lag compensator
+kc = w1 / wh
+
+% Lag compensator transfer function
+lagc = tf(kc * [1 wh], [1 w1])
+
+% Compensated system
+CGCS = K * G * lagc
+
+% Verify steady-state velocity constant
+S = tf([1 0], [0 1])
+KVF = dcgain(S * CGCS)
+
+% Closed-loop system
+CLS = feedback(CGCS, 1)
+
+% Bode plot of compensated system
+figure(2)
+margin(CGCS)
+grid on
+
+% Step response of closed-loop compensated system
+
+figure(2)
+step(CLS)
+grid on

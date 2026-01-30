@@ -1,0 +1,62 @@
+G =
+ 
+        s + 1.5
+  -------------------
+  s^3 + 11 s^2 + 10 s
+ 
+Continuous-time transfer function.
+Model Properties
+
+z =
+
+    0.7998
+
+Select a point in the graphics window
+selected_point =
+
+  -0.8732 + 0.6459i
+
+
+K =
+
+    7.2684
+
+
+P =
+
+  -9.2628 + 0.0000i
+  -0.8686 + 0.6500i
+  -0.8686 - 0.6500i
+
+
+T =
+ 
+         7.268 s + 10.9
+  -----------------------------
+  s^3 + 11 s^2 + 17.27 s + 10.9
+ 
+Continuous-time transfer function.
+Model Properties
+
+TS =
+
+    0.4318
+
+
+TP =
+
+   Inf
+
+
+s =
+ 
+  s
+ 
+Continuous-time transfer function.
+Model Properties
+
+KV =
+
+    0.1500
+
+>> 

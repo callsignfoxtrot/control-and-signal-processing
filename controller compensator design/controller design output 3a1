@@ -1,0 +1,44 @@
+z =
+
+    0.5996
+
+
+pmreq =
+
+   59.1621
+
+
+
+numgn =
+
+   3.4585e+03
+
+
+T =
+ 
+              3458
+  -----------------------------
+  s^3 + 136 s^2 + 3600 s + 3458
+ 
+Continuous-time transfer function.
+Model Properties
+
+CGC =
+ 
+           3458
+  ----------------------
+  s^3 + 136 s^2 + 3600 s
+ 
+Continuous-time transfer function.
+Model Properties
+
+
+M =
+
+   -55
+
+>> K=10^(-M/20)
+
+K =
+
+  562.3413

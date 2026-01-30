@@ -1,0 +1,79 @@
+GM_sys =
+
+    0.6000
+
+
+PM_sys =
+
+  -12.9919
+
+
+Wcg =
+
+    1.4142
+
+
+Wcp =
+
+    1.8020
+
+
+wm =
+
+    0.4700
+
+
+beta =
+
+    9.5000
+
+
+w1 =
+
+    0.0049
+
+
+kc =
+
+    0.1053
+
+
+lagc =
+ 
+  0.1053 s + 0.004947
+  -------------------
+     s + 0.004947
+ 
+Continuous-time transfer function.
+Model Properties
+
+CGCS =
+ 
+               0.5263 s + 0.02474
+  --------------------------------------------
+  0.5 s^4 + 1.502 s^3 + 1.007 s^2 + 0.004947 s
+ 
+Continuous-time transfer function.
+Model Properties
+
+S =
+ 
+  s
+ 
+Continuous-time transfer function.
+Model Properties
+
+KVF =
+
+     5
+
+
+CLS =
+ 
+                   0.5263 s + 0.02474
+  ----------------------------------------------------
+  0.5 s^4 + 1.502 s^3 + 1.007 s^2 + 0.5313 s + 0.02474
+ 
+Continuous-time transfer function.
+Model Properties
+>> 

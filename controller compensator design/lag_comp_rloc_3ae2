@@ -1,0 +1,24 @@
+clear all; close all; clc
+s=tf('s')
+%type 1 system
+g1=1/(s*(s+1)*(s+4))
+rlocus(g1)
+z=0.5;TS=10;kvf=5
+wn=4/(z*TS);
+s1=-z*wn+1j*wn*sqrt(1-z*z);%desired closed loop dominant poles
+[k,p]=rlocfind(g1,s1)%finding gain to meet desired poles
+%static velocity error constant
+d1=s
+kv=dcgain(d1*k*g1)%type 1 system
+ess=1/kv;
+%desired gain
+k=kvf/kv;% gain to be provided by lag network to meet steady state error
+beta=k*1.1;
+zlag=0.2;
+plag=zlag/beta;
+gclag=(s+zlag)/(s+plag);
+cgc=g1*gclag
+zpk(cgc)
+rlocus(cgc)
+[k1,p1]=rlocfind(cgc,s1)%gain of compensated system which places roots and meet SS error
+kvf=dcgain(d1*cgc*k1)% compare with desired value

@@ -1,0 +1,58 @@
+% Problem 3: Lag compensator to improve steady state error
+
+clear all; close all; clc
+
+s = tf('s');
+
+% Open-loop transfer function
+g1 = 1/((s+1)*(s+2)*(s+10));
+
+% Plot root locus of uncompensated system
+rlocus(g1);
+
+% Design a lag compensator to improve steady state error by factor of 10
+z = 0.174;           % Desired damping ratio
+sgrid(z,0);           % Marks line on root locus
+
+% Find gain and poles corresponding to desired damping ratio
+[k, p] = rlocfind(g1);  
+
+% Type 0 system: steady state error
+kp = dcgain(k*g1);      
+ess = 1/(1 + kp);       
+
+% Determine beta for lag compensator
+kp1 = 10*kp;           % desired position error coefficient (improve by factor 10)
+beta = (kp1 / kp) * 1.1;  % HF attenuation factor
+
+% Lag network zero and pole
+zlag = 0.1;             
+plag = zlag / beta;     
+
+% Lag compensator transfer function
+gclag = (s + zlag)/(s + plag);  
+
+% Effective open-loop transfer function with lag
+cgc = g1 * gclag;       
+
+% Display zeros, poles, gain
+zpk(cgc);
+
+% Root locus of compensated system
+rlocus(cgc);
+sgrid(z,0);
+
+% Find gain to meet desired damping ratio
+[k1, p] = rlocfind(cgc);  
+
+% Type 0 system: steady state error after compensation
+kpf = dcgain(k1*cgc);
+ess1 = 1/(1 + kpf);
+ess_ratio = ess / ess1;
+
+% Comparison of closed-loop responses
+cltfu = feedback(k*g1,1);   % Uncompensated
+step(cltfu);
+hold on;
+cltfc = feedback(kpf*cgc,1); % Compensated
+step(cltfc);

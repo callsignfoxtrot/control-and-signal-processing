@@ -22,3 +22,11 @@ zpk(cgc)
 rlocus(cgc)
 [k1,p1]=rlocfind(cgc,s1)%gain of compensated system which places roots and meet SS error
 kvf=dcgain(d1*cgc*k1)% compare with desired value
+
+%Comparison of closed loop response of uncompensated and compensated system
+cltfu=feedback(k*g1,1)
+figure(2)
+step(cltfu)
+hold on
+cltfc=feedback(k1*cgc,1)
+step(cltfc)

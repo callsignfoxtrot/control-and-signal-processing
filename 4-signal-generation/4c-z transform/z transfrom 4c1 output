@@ -1,0 +1,18 @@
+Z-transform of (0.5)^n is
+ 
+X1 =
+ 
+z/(z - 1/2)
+ 
+Z-transform of n is
+ 
+X2 =
+ 
+z/(z - 1)^2
+ 
+Z-transform of n*(a^n) is
+ 
+X3 =
+ 
+(a*z)/(a - z)^2
+ 

@@ -1,0 +1,23 @@
+The 4-point DFT of x1(n) is:
+
+X1 =
+
+     2     0    -2     0
+
+The 4-point DFT of x2(n) is:
+
+X2 =
+
+     6     0    -2     0
+
+The product of DFTs is:
+
+X1X2 =
+
+    12     0     4     0
+
+Circular convolution of x1(n) and x2(n) is:
+
+X3 =
+
+     4     2     4     2

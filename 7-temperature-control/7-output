@@ -1,0 +1,20 @@
+Output - P control:
+Rise Time Tr = 80.00
+Peak Time Tp = 130.00
+Maximum Overshoot Mp = 5.00%
+Settling Time Ts = 420.00
+Steady State Error Ess = 1.00
+
+Output - PI control:
+Rise Time Tr = 80.00
+Peak Time Tp = 130.00
+Maximum Overshoot Mp = 7.00%
+Settling Time Ts = 250.00
+Steady State Error Ess = 0.40
+
+Output - PID control:
+Rise Time Tr = 90.00
+Peak Time Tp = 140.00
+Maximum Overshoot Mp = 7.60%
+Settling Time Ts = 200.00
+Steady State Error Ess = 0.00

@@ -11,7 +11,6 @@ The repository is structured according to the lab cycles and experiments.
 - `exercises/` : Individual exercises and additional assignments.
 - `docs/` : Reports, calculations and documentation (e.g., `.docx` files).
 
-> *Note: Folders will expand as more experiments and cycles are added.*
 ---
 
 ## Lab Cycles and Experiments
